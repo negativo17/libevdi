@@ -38,9 +38,8 @@ cd library
 %make_build
 
 %install
-install -D -m755 library/libevdi.so.%{version} %{buildroot}%{_libdir}/libevdi.so.%{version}
-ldconfig -vn %{buildroot}%{_libdir}/
-ln -sf libevdi.so.%{version} %{buildroot}%{_libdir}/libevdi.so
+cd library
+%make_install LIBDIR=%{_libdir}
 
 %files
 %doc README.md
