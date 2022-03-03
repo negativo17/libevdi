@@ -1,10 +1,10 @@
 %global commit0 aef6790272fce5d64d36d191dcb79d97021bfda7
 %global date 20220104
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-#global tag %{version}
+%global tag %{version}
 
 Name:       libevdi
-Version:    1.10.0
+Version:    1.10.1
 Release:    1%{!?tag:.%{date}git%{shortcommit0}}%{?dist}
 Summary:    DisplayLink VGA/HDMI driver library
 License:    LGPLv2+
@@ -50,6 +50,9 @@ cd library
 %{_libdir}/libevdi.so.%{version}
 
 %changelog
+* Thu Mar 03 2022 Simone Caronni <negativo17@gmail.com> - 1.10.1-1
+- Update to 1.10.1.
+
 * Fri Jan 21 2022 Simone Caronni <negativo17@gmail.com> - 1.10.0-1.20220104gitaef6790
 - Update to 1.10.0 plus latest commits.
 
