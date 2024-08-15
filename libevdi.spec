@@ -1,11 +1,11 @@
 %global commit0 eab561a9fe19d1bbc801dd1ec60e8b3318941be7
 %global date 20230726
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-#global tag %{version}
+%global tag %{version}
 
 Name:       libevdi
-Version:    1.14.5
-Release:    2%{!?tag:.%{date}git%{shortcommit0}}%{?dist}
+Version:    1.14.6
+Release:    1%{!?tag:.%{date}git%{shortcommit0}}%{?dist}
 Summary:    DisplayLink VGA/HDMI driver library
 # See https://github.com/DisplayLink/evdi/blob/devel/README.md#licensing
 License:    LGPLv2+
@@ -51,6 +51,9 @@ cd library
 %{_libdir}/libevdi.so.%{version}
 
 %changelog
+* Thu Aug 15 2024 Simone Caronni <negativo17@gmail.com> - 1.14.6-1
+- Update to 1.14.6 final.
+
 * Mon Aug 12 2024 Simone Caronni <negativo17@gmail.com> - 1.14.5-2.20230726giteab561a
 - Update to latest snapshot.
 
