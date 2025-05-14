@@ -1,21 +1,12 @@
-%global commit0 eab561a9fe19d1bbc801dd1ec60e8b3318941be7
-%global date 20230726
-%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global tag %{version}
-
 Name:       libevdi
-Version:    1.14.9%{!?tag:^%{date}git%{shortcommit0}}
+Version:    1.14.10
 Release:    1%{?dist}
 Summary:    DisplayLink VGA/HDMI driver library
 # See https://github.com/DisplayLink/evdi/blob/devel/README.md#licensing
 License:    LGPLv2+
 URL:        https://github.com/DisplayLink/evdi
 
-%if 0%{?tag:1}
 Source0:    %{url}/archive/v%{version}.tar.gz#/evdi-%{version}.tar.gz
-%else
-Source0:    %{url}/archive/%{commit0}.tar.gz#/evdi-%{shortcommit0}.tar.gz
-%endif
 
 BuildRequires:  gcc
 BuildRequires:  libdrm-devel
@@ -27,11 +18,7 @@ DL-5xxx, DL-41xx and DL-3xxx series of chipsets. This includes numerous docking
 stations, USB monitors, and USB adapters.
 
 %prep
-%if 0%{?tag:1}
 %autosetup -p1 -n evdi-%{version}
-%else
-%autosetup -p1 -n evdi-%{commit0}
-%endif
 
 %build
 cd library
@@ -51,6 +38,9 @@ cd library
 %{_libdir}/libevdi.so.%{version}
 
 %changelog
+* Wed May 14 2025 Simone Caronni <negativo17@gmail.com> - 1.14.10-1
+- Update to 1.4.10.
+
 * Thu Mar 27 2025 Simone Caronni <negativo17@gmail.com> - 1.14.9-1
 - Update to 1.14.9.
 
