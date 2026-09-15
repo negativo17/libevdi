@@ -1,5 +1,5 @@
 Name:       libevdi
-Version:    1.15.0
+Version:    1.15.1
 Release:    1%{?dist}
 Summary:    DisplayLink VGA/HDMI driver library
 # See https://github.com/DisplayLink/evdi/blob/devel/README.md#licensing
@@ -38,6 +38,9 @@ cd library
 %{_libdir}/libevdi.so.%{version}
 
 %changelog
+* Tue Sep 15 2026 Simone Caronni <negativo17@gmail.com> - 1.15.1-1
+- Update to 1.15.1.
+
 * Wed Jul 01 2026 Simone Caronni <negativo17@gmail.com> - 1.15.0-1
 - Update to 1.15.0.
 
