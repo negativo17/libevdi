@@ -1,7 +1,7 @@
 Name:       libevdi
 Version:    1.15.1
-Release:    2%{?dist}
-Summary:    DisplayLink VGA/HDMI driver library
+Release:    3%{?dist}
+Summary:    DisplayLink and Silicon Motion USB display driver library
 # See https://github.com/DisplayLink/evdi/blob/devel/README.md#licensing
 License:    LGPLv2+
 URL:        https://github.com/DisplayLink/evdi
@@ -16,9 +16,9 @@ BuildRequires:  make
 Provides:   evdi-kmod-common = %{version}
 
 %description
-This adds support for HDMI/VGA adapters built upon the DisplayLink DL-6xxx,
-DL-5xxx, DL-41xx and DL-3xxx series of chipsets. This includes numerous docking
-stations, USB monitors, and USB adapters.
+Library for the Extensible Virtual Display Interface (EVDI) kernel module. It is
+used by the DisplayLink (displaylink) and Silicon Motion (smiusbdisplay) USB
+display drivers for docking stations, USB monitors and USB adapters.
 
 %prep
 %autosetup -p1 -n evdi-%{version}
@@ -41,6 +41,9 @@ cd library
 %{_libdir}/libevdi.so.%{version}
 
 %changelog
+* Fri Oct 09 2026 Simone Caronni <negativo17@gmail.com> - 1.15.1-3
+- Update description, the library is also used by smiusbdisplay.
+
 * Fri Oct 09 2026 Simone Caronni <negativo17@gmail.com> - 1.15.1-2
 - Provide evdi-kmod-common, so the module can be used without displaylink.
 
