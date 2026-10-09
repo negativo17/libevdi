@@ -1,6 +1,6 @@
 Name:       libevdi
 Version:    1.15.1
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    DisplayLink VGA/HDMI driver library
 # See https://github.com/DisplayLink/evdi/blob/devel/README.md#licensing
 License:    LGPLv2+
@@ -11,6 +11,9 @@ Source0:    %{url}/archive/v%{version}.tar.gz#/evdi-%{version}.tar.gz
 BuildRequires:  gcc
 BuildRequires:  libdrm-devel
 BuildRequires:  make
+
+# Required by the akmod and dkms evdi packages
+Provides:   evdi-kmod-common = %{version}
 
 %description
 This adds support for HDMI/VGA adapters built upon the DisplayLink DL-6xxx,
@@ -38,6 +41,9 @@ cd library
 %{_libdir}/libevdi.so.%{version}
 
 %changelog
+* Fri Oct 09 2026 Simone Caronni <negativo17@gmail.com> - 1.15.1-2
+- Provide evdi-kmod-common, so the module can be used without displaylink.
+
 * Tue Sep 15 2026 Simone Caronni <negativo17@gmail.com> - 1.15.1-1
 - Update to 1.15.1.
 
